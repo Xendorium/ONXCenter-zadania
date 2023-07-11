@@ -2,10 +2,13 @@
 class Pipeline
 {
     public static function make(...$functions){
+        $arg = 3;
         foreach ($functions as $function){
             $closure = function($arg) use ($function){
                 return $function($arg);
             };
-        } return $closure(3);
+            $arg = $closure($arg);
+        }
+        return $arg;
     }
 }
