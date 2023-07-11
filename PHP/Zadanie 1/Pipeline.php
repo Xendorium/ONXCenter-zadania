@@ -2,7 +2,7 @@
 class Pipeline
 {
     public static function make(...$functions){
-        $arg = 3;
+        $arg = $_SESSION['var'];
         foreach ($functions as $function){
             $closure = function($arg) use ($function){
                 return $function($arg);
