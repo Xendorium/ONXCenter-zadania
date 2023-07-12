@@ -3,11 +3,11 @@
 include_once ('NumericInput.php');
 class TextInput
 {
-    public $value="";
+    public static $value="";
     public function add($text){
-        $this->value = $this->value.$text;
+        self::$value = self::$value.$text;
     }
     public function getValue(){
-        echo $this->value."</br>";
+        echo self::$value."</br>";
     }
 }
