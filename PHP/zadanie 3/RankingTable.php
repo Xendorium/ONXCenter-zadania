@@ -2,9 +2,9 @@
 
 class RankingTable
 {
-
-    public function __construct(){
-        
+    public $competitors = array();
+    public function __construct($players){
+        $this->competitors=$players;
     }
 
     public function recordResult(){
