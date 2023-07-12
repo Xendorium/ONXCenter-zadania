@@ -4,6 +4,7 @@ class RankingTable
 {
     public $competitors = array();
     public $rank = array();
+    public $rank_coped = array();
     public function __construct($players){
         $this->competitors=$players;
     }
@@ -17,10 +18,23 @@ class RankingTable
         echo "</br>Nie znaleziono gracza ".$name." na liście graczy";
         return;
         P1:
-        echo "</br>Znaleziono gracza: ".$name;
         $this->rank[$name]=$points;
     }
-    public function playerRank($rank){
 
+    public function segregation(){
+        $segregated = array();
+        $this->rank_coped=$this->rank;
+        $num=0;
+        while ($num < count($this->rank)) {
+            $max = max($this->rank);
+            $segregated[$num] = $max;
+            $num++;
+            $key = array_search($max, $this->rank);
+            unset($this->rank[$key]);
+        }
+        $this->rank=$segregated;
+    }
+    public function playerRank($rank){
+        return array_search($this->rank[$rank-1],$this->rank_coped);
     }
 }

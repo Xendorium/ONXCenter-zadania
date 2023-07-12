@@ -6,5 +6,7 @@ $table->recordResult('Jan', 2);
 $table->recordResult('Maks', 3);
 $table->recordResult('Monika', 5);
 
-echo "</br>".$table->rank['Jan'];
+$table->segregation();
+
+echo $table->playerRank(2);
 
