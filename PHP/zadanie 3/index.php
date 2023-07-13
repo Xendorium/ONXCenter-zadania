@@ -2,12 +2,12 @@
 require_once ('RankingTable.php');
 
 $table = new RankingTable(array('Jan', 'Maks', 'Monika'));
-$table->recordResult('Jan', 3);
-$table->recordResult('Jan', 4);
-$table->recordResult('Maks', 3);
-$table->recordResult('Monika', 9);
+$table->recordResult('Jan', 2);
+$table->recordResult('Jan', 7);
+$table->recordResult('Maks', 10);
+$table->recordResult('Monika', 13);
 
-$table->segregation();
+//$table->segregation();
 
-echo $table->playerRank(1);
+echo $table->playerRank(3);
 
