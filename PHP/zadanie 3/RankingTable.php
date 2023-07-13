@@ -39,6 +39,7 @@ class RankingTable
         return $this->rank[$name];
     }
 
+
     public function segregation(){
          arsort($this->rank);
          asort($this->numberOfgame);
@@ -48,19 +49,36 @@ class RankingTable
          $many = array_count_values($this->rank);
          $unique = count($many);
 
+        $many_ = array_count_values($this->numberOfgame);
+        $unique_ = count($many_);
+
          if ($unique==1){
              while($num < count($this->rank)){
                  $segregated[$num] = $this->key($this->numberOfgame,0);
                  $num++;
                  unset($this->numberOfgame[$this->key($this->numberOfgame,0)]);
              }
-             return $segregated;
+         }
+         elseif ($unique_==1){
+             while($num < count($this->numberOfgame)){
+                 $segregated[$num] = $this->key($this->rank,0);
+                 $num++;
+                 unset($this->rank[$this->key($this->rank,0)]);
+             }
          }
          else {
                 while($num < $count){
                     $howManymax=1;
-                    for($i=0;($i+1>$count&&($this->rank[$this->key($this->rank,$i)]==$this->rank[$this->key($this->rank,$i+1)]));$i++){
-                        $howManymax++;
+                    if(count($this->rank)>1){
+                        for($i=0;($this->rank[$this->key($this->rank,$i)]==$this->rank[$this->key($this->rank,$i+1)]);$i++){
+                            $howManymax++;
+                        }
+                    }
+                    $howManynumber=1;
+                    if(count($this->numberOfgame)>1){
+                        for($i=0;$this->numberOfgame[$this->key($this->numberOfgame,$i)]==$this->numberOfgame[$this->key($this->numberOfgame,$i+1)];$i++){
+                            $howManynumber++;
+                        }
                     }
                     if ($howManymax==1){
                         $segregated[$num] = $this->key($this->rank,0);
@@ -68,12 +86,24 @@ class RankingTable
                         unset($this->rank[$this->key($this->rank,0)]);
                     }
                     else{
+                        $p=0;
+                        while ($p<$howManymax){
+                            $i=0;
+                            while($i<$howManynumber){
+                                if($this->key($this->rank,$p)==$this->key($this->numberOfgame,$i)){
+                                    $segregated[$num] = $this->key($this->rank,$i);
+                                    $num++;
+                                    unset($this->rank[$this->key($this->rank,$i)]);
+                                }
+                                $i++;
+                            }
+                            $p++;
+                        }
 
                     }
                 }
-                return $segregated;
          }
-
+        return $segregated;
     }
 
 
