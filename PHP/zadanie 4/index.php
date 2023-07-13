@@ -1,19 +1,18 @@
 <?php
 
+require_once ('Dictionary.php');
 
-$tezaurus=array("market" => array("trade"), "small" => array("little", "compact"));
-function getSynonyms($word){
-
-
-    echo '\''."{".'"'."word".":".'"'.$word.'"',",",'"synonyms:"'."["."]"."}".'\'';
-}
-
-
+$tezaurus=new Dictionary();
 
 $word="market";
+echo $tezaurus->getSynonyms($word);
+echo "</br>";
 
-$tezaurus["small"]=implode(',',"small");
+$word="small";
+echo $tezaurus->getSynonyms($word);
+echo "</br>";
 
-/*$tezaurus->*/getSynonyms($word);
-
+$word="asleast";
+echo $tezaurus->getSynonyms($word);
+echo "</br>";
 
