@@ -1,2 +1,2 @@
-# ONXCenter-zadania
-Repozytorium do umieszczania zadań programu stażowego
+# PHP-zadania
+Repozytorium do umieszczania zadań z PHP
