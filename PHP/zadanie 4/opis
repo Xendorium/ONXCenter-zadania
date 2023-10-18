@@ -1,1 +1,10 @@
-
+Jeden z rodzajów słownika, czyli tezaurus, zawiera słowa i ich synonimy. 
+Poniżej znajduje się przykład struktury danych, która definiuje tezaurus:
+array("market" => array("trade"), "small" => array("little", "compact"))
+Należy zaimplementować funkcję getSynonyms, która przyjmuje słowo jako ciąg znaków i zwraca
+wszystkie synonimy dla tego słowa w formacie JSON, jak w poniższym przykładzie.
+Na przykład wywołanie $thesaurus->getSynonyms("small") powinno zwrócić:
+'{"word":"small","synonyms":["little", "compact"]}'
+podczas gdy wywołanie z słowem, dla którego nie ma synonimów, np. $thesaurus-
+>getSynonyms("asleast") powinno zwrócić:
+'{"word":"asleast","synonyms":[]}'
