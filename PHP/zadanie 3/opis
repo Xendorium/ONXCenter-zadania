@@ -1,1 +1,15 @@
-
+Klasa RankingTable śledzi wyniki każdego gracza w lidze. Po każdej grze, gracz zapisuje swój wynik za pomocą funkcji recordResult().
+Ranking gracza w lidze jest obliczany zgodnie z następującą logiką:
+Gracz z najwyższym wynikiem jest sklasyfikowany jako pierwszy (rank 1). 
+Gracz z najniższym wynikiem jest sklasyfikowany jako ostatni.
+Jeśli dwóch graczy ma ten sam wynik, to gracz, który rozegrał mniej gier, jest sklasyfikowany wyżej.
+Jeśli dwóch graczy ma ten sam wynik i rozegrali tę samą liczbę gier, to gracz, który był pierwszy na liście graczy, jest sklasyfikowany wyżej.
+Zaimplementuj funkcję playerRank, która zwraca gracza o podanym rankingu.
+$table = new RankingTable(array('Jan', 'Maks', 'Monika'));
+$table->recordResult('Jan', 2);
+$table->recordResult('Maks', 3);
+$table->recordResult('Monika', 5);
+echo $table->playerRank(1);
+Wszyscy gracze mają taki sam wynik. Jednak Maks i Monika rozegrali mniej gier niż Jan, a ponieważ
+Monika znajduje się przed Maks na liście graczy, jest on sklasyfikowany jako pierwszy. Dlatego
+powyższy kod powinien zwrócić "Monika".
